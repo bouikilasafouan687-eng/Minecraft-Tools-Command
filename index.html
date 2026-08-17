@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Minecraft Tools</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>⛏️ Minecraft Tools</h1>
+        <p>Useful tools for Minecraft players</p>
+    </header>
+
+    <main>
+        <section class="card">
+            <h2>⚡ Command Generator</h2>
+<label>Command Type</label>
+
+<select id="commandType">
+    <option value="give">🎁 Give</option>
+    <option value="summon">👾 Summon</option>
+    <option value="effect">✨ Effect</option>
+    <option value="tp">📍 Teleport</option>
+    <option value="gamemode">🎮 Gamemode</option>
+    <option value="time">🕐 Time</option>
+    <option value="weather">🌦️ Weather</option>
+</select>
+
+            <label>Player</label>
+            <input id="player" type="text" placeholder="@s">
+
+            <label>Item</label>
+
+<input
+    id="itemSearch"
+    type="text"
+    placeholder="🔎 Search an item..."
+    autocomplete="off"
+>
+
+<div id="itemList"></div>
+
+<input type="hidden" id="item">
+            <label>Amount</label>
+            <input id="amount" type="number" value="1" min="1">
+
+            <button onclick="generateCommand()">
+                Generate Command
+            </button>
+
+            <div id="result">
+    Your command will appear here...
+</div>
+
+<button onclick="copyCommand()">
+    📋 Copy Command
+</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 Minecraft Tools</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
