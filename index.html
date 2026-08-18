@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,63 +12,251 @@
 
 <body>
 
-    <header>
-        <h1>⛏️ Minecraft Tools</h1>
-        <p>Useful tools for Minecraft players</p>
-    </header>
+<header>
+    <h1>⛏️ Minecraft Tools</h1>
+    <p>Useful Minecraft command tools</p>
+</header>
 
-    <main>
-        <section class="card">
-            <h2>⚡ Command Generator</h2>
-<label>Command Type</label>
+<main>
 
-<select id="commandType">
-    <option value="give">🎁 Give</option>
-    <option value="summon">👾 Summon</option>
-    <option value="effect">✨ Effect</option>
-    <option value="tp">📍 Teleport</option>
-    <option value="gamemode">🎮 Gamemode</option>
-    <option value="time">🕐 Time</option>
-    <option value="weather">🌦️ Weather</option>
-</select>
+    <section class="card">
+
+        <h2>⚡ Command Generator</h2>
+
+        <!-- Edition -->
+        <label>Edition</label>
+
+        <select id="edition">
+            <option value="java">🟩 Java Edition</option>
+            <option value="bedrock">🟦 Bedrock Edition</option>
+        </select>
+
+
+        <!-- Command Type -->
+        <label>Command Type</label>
+
+        <select id="commandType">
+
+            <option value="give">🎁 Give</option>
+            <option value="summon">👾 Summon</option>
+            <option value="effect">✨ Effect</option>
+            <option value="tp">📍 Teleport</option>
+            <option value="gamemode">🎮 Gamemode</option>
+            <option value="time">🕐 Time</option>
+            <option value="weather">🌦️ Weather</option>
+
+        </select>
+
+
+        <!-- Player -->
+        <div id="playerOption">
 
             <label>Player</label>
-            <input id="player" type="text" placeholder="@s">
 
-            <label>Item</label>
+            <input
+                id="player"
+                type="text"
+                placeholder="@s"
+                value="@s"
+            >
 
-<input
-    id="itemSearch"
-    type="text"
-    placeholder="🔎 Search an item..."
-    autocomplete="off"
->
+        </div>
 
-<div id="itemList"></div>
 
-<input type="hidden" id="item">
+        <!-- Item / Mob / Effect Search -->
+        <div id="searchOption">
+
+            <label id="searchLabel">Item</label>
+
+            <input
+                id="itemSearch"
+                type="text"
+                placeholder="🔎 Search..."
+                autocomplete="off"
+            >
+
+            <div id="itemList"></div>
+
+            <input type="hidden" id="item">
+
+        </div>
+
+
+        <!-- Amount -->
+        <div id="amountOption">
+
             <label>Amount</label>
-            <input id="amount" type="number" value="1" min="1">
 
-            <button onclick="generateCommand()">
-                Generate Command
-            </button>
+            <input
+                id="amount"
+                type="number"
+                value="1"
+                min="1"
+            >
 
-            <div id="result">
-    Your command will appear here...
-</div>
+        </div>
 
-<button onclick="copyCommand()">
-    📋 Copy Command
-</button>
-        </section>
-    </main>
 
-    <footer>
-        <p>© 2026 Minecraft Tools</p>
-    </footer>
+        <!-- Effect -->
+        <div id="effectOptions">
 
-    <script src="script.js"></script>
+            <label>Duration (seconds)</label>
+
+            <input
+                id="effectDuration"
+                type="number"
+                value="30"
+                min="1"
+            >
+
+            <label>Effect Level</label>
+
+            <input
+                id="effectLevel"
+                type="number"
+                value="1"
+                min="1"
+            >
+
+            <label>Hide Particles</label>
+
+            <select id="hideParticles">
+
+                <option value="false">❌ No</option>
+                <option value="true">✅ Yes</option>
+
+            </select>
+
+        </div>
+
+
+        <!-- Teleport -->
+        <div id="tpOptions">
+
+            <label>Target</label>
+
+            <input
+                id="tpTarget"
+                type="text"
+                value="@s"
+            >
+
+            <label>X</label>
+
+            <input
+                id="tpX"
+                type="text"
+                value="~"
+            >
+
+            <label>Y</label>
+
+            <input
+                id="tpY"
+                type="text"
+                value="~"
+            >
+
+            <label>Z</label>
+
+            <input
+                id="tpZ"
+                type="text"
+                value="~"
+            >
+
+        </div>
+
+
+        <!-- Gamemode -->
+        <div id="gamemodeOptions">
+
+            <label>Gamemode</label>
+
+            <select id="gamemode">
+
+                <option value="survival">🟢 Survival</option>
+                <option value="creative">🔵 Creative</option>
+                <option value="adventure">🟠 Adventure</option>
+                <option value="spectator">👻 Spectator</option>
+
+            </select>
+
+            <label>Target</label>
+
+            <input
+                id="gamemodeTarget"
+                type="text"
+                value="@s"
+            >
+
+        </div>
+
+
+        <!-- Time -->
+        <div id="timeOptions">
+
+            <label>Time</label>
+
+            <select id="timeValue">
+
+                <option value="day">☀️ Day</option>
+                <option value="noon">🌞 Noon</option>
+                <option value="night">🌙 Night</option>
+                <option value="midnight">🌑 Midnight</option>
+
+            </select>
+
+        </div>
+
+
+        <!-- Weather -->
+        <div id="weatherOptions">
+
+            <label>Weather</label>
+
+            <select id="weatherValue">
+
+                <option value="clear">☀️ Clear</option>
+                <option value="rain">🌧️ Rain</option>
+                <option value="thunder">⛈️ Thunder</option>
+
+            </select>
+
+        </div>
+
+
+        <!-- Generate -->
+        <button onclick="generateCommand()">
+            ⚡ Generate Command
+        </button>
+
+
+        <!-- Result -->
+        <div id="result">
+            Your command will appear here...
+        </div>
+
+
+        <!-- Copy -->
+        <button onclick="copyCommand()">
+            📋 Copy Command
+        </button>
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    <p>© 2026 Minecraft Tools</p>
+
+</footer>
+
+
+<script src="script.js"></script>
 
 </body>
+
 </html>
