@@ -29,12 +29,12 @@ header p {
 main {
     display: flex;
     justify-content: center;
-    padding: 50px 20px;
+    padding: 40px 20px;
 }
 
 .card {
     width: 100%;
-    max-width: 500px;
+    max-width: 550px;
     background: #1c2b36;
     padding: 30px;
     border-radius: 15px;
@@ -50,7 +50,8 @@ label {
     margin-bottom: 7px;
 }
 
-input {
+input,
+select {
     width: 100%;
     padding: 13px;
     border: none;
@@ -62,7 +63,7 @@ input {
 
 button {
     width: 100%;
-    margin-top: 25px;
+    margin-top: 20px;
     padding: 14px;
     border: none;
     border-radius: 8px;
@@ -85,27 +86,18 @@ button:hover {
     color: #8cff8c;
 }
 
-footer {
-    text-align: center;
-    padding: 20px;
-    color: #8999a3;
-}
-#itemSearch {
-    margin-bottom: 10px;
-}
-
 #itemList {
     max-height: 250px;
     overflow-y: auto;
     background: #293d4a;
     border-radius: 8px;
-    padding: 5px;
+    margin-top: 5px;
 }
 
 .item-option {
     padding: 10px;
-    border-radius: 6px;
     cursor: pointer;
+    border-radius: 6px;
 }
 
 .item-option:hover {
@@ -115,13 +107,29 @@ footer {
 .item-option.selected {
     background: #4caf50;
 }
-#commandType {
-    width: 100%;
-    padding: 13px;
-    border: none;
-    border-radius: 8px;
-    background: #293d4a;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
+
+#effectOptions,
+#tpOptions,
+#gamemodeOptions,
+#timeOptions,
+#weatherOptions {
+    display: none;
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #8999a3;
+}
+
+@media (max-width: 600px) {
+
+    header h1 {
+        font-size: 32px;
+    }
+
+    .card {
+        padding: 20px;
+    }
+
 }
